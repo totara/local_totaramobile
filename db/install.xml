@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/totaramobile/db" VERSION="20141222" COMMENT="XMLDB file for Totara mobile"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="facetoface_booking_seen_mob" COMMENT="Booking seen on mobile">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="ID"/>
+            <FIELD NAME="bookingid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Booking ID"/>
+            <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Use ID"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            <KEY NAME="bookingid_fk" TYPE="foreign" FIELDS="bookingid" REFTABLE="facetoface_sessions_dates" REFFIELDS="id"/>
+            <KEY NAME="userid_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        </KEYS>
+    </TABLE>
+    <TABLE NAME="message_seen_on_mobile" COMMENT="Message seen on mobile">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="ID"/>
+            <FIELD NAME="messageid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Message ID"/>
+            <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Use ID"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            <KEY NAME="messageid_fk" TYPE="foreign" FIELDS="messageid" REFTABLE="message" REFFIELDS="id"/>
+            <KEY NAME="userid_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
